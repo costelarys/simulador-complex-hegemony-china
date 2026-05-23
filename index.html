@@ -1,147 +1,184 @@
-
-raw
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Complex Hegemony — Dynamic Vortex Simulation</title>
+  <title>Simulating Complex Hegemony: The International System</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="app">
- 
-    <!-- ── SIDEBAR ── -->
-    <aside id="sidebar">
- 
-      <header id="sidebar-header">
-        <div class="header-tag">SIM // v2.4.1</div>
-        <h1>COMPLEX<br/>HEGEMONY</h1>
-        <div class="header-sub">INTERNATIONAL SYSTEMS DYNAMICS ENGINE</div>
-        <div class="scan-line"></div>
+
+<div id="app">
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <aside id="sidebar">
+
+    <!-- Scrollable content zone -->
+    <div id="sb-scroll">
+
+      <!-- Header -->
+      <header id="sb-header">
+        <div class="sb-eyebrow">INTERNATIONAL SYSTEMS SIMULATION</div>
+        <h1 id="sb-title">Simulating<br>Complex Hegemony</h1>
+        <p class="sb-subtitle">The International System</p>
+        <div class="sb-rule"></div>
       </header>
- 
-      <!-- HUD -->
-      <section class="panel" id="hud-panel">
-        <div class="panel-title">◈ SYSTEM HUD</div>
-        <div class="hud-grid">
+
+      <!-- ── HUD ── -->
+      <section class="sb-section" id="sec-hud">
+        <div class="sec-label">◆ SYSTEM HUD</div>
+        <div class="hud-panel">
+
           <div class="hud-row">
-            <span class="hud-label">ENVIRONMENT</span>
-            <span class="hud-value accent-green">GAME SPACE</span>
+            <span class="hud-key">ENVIRONMENT</span>
+            <span class="hud-val accent-gold" id="hud-env">GAME SPACE</span>
           </div>
+
           <div class="hud-row">
-            <span class="hud-label">SYSTEM STATE</span>
-            <span class="hud-value accent-cyan">METASTABLE EQUILIBRIUM</span>
+            <span class="hud-key">SYSTEM STATE</span>
+            <span class="hud-val" id="hud-state">METASTABLE EQUILIBRIUM</span>
           </div>
-          <div class="hud-row">
-            <span class="hud-label">ENTITIES</span>
-            <span class="hud-value" id="hud-entities">72 NODES ACTIVE</span>
-          </div>
-          <div class="hud-row">
-            <span class="hud-label">PHASE</span>
-            <span class="hud-value" id="hud-phase">STABLE</span>
-          </div>
-          <div class="hud-row hud-row--full">
-            <span class="hud-label">SPATIAL FIX</span>
-          </div>
-          <div class="hud-row hud-row--full">
-            <span class="hud-value hud-spatial" id="hud-spatial">
-              State A (Cold War Bipolarity): Geopolitical containment rings
+
+          <div class="hud-row hud-row--block">
+            <span class="hud-key">SPATIAL FIX</span>
+            <span class="hud-val hud-spatial" id="hud-spatial">
+              Dynamic equilibrium; geographical anchoring of capital.
             </span>
           </div>
+
         </div>
       </section>
- 
-      <!-- CONTROLS -->
-      <section class="panel" id="controls-panel">
-        <div class="panel-title">◈ SYSTEMIC FORCES</div>
- 
-        <div class="slider-group">
-          <div class="slider-header">
-            <label for="slider-lockin">Downward Causation</label>
-            <span class="slider-tag">(Lock-in)</span>
-            <span class="slider-val" id="val-lockin">3</span>
+
+      <!-- ── CONTROLS ── -->
+      <section class="sb-section sb-section--alt" id="sec-controls">
+        <div class="sec-label">◆ SYSTEMIC FORCES</div>
+
+        <div class="ctrl-group">
+          <div class="ctrl-header">
+            <label class="ctrl-name" for="sl-lockin">
+              Downward Causation
+              <span class="ctrl-tag">(Lock-in)</span>
+            </label>
+            <span class="ctrl-val" id="disp-lockin">2.0</span>
           </div>
-          <div class="slider-track-wrap">
-            <input type="range" id="slider-lockin" min="0" max="8" step="0.1" value="3" />
-            <div class="slider-fill" id="fill-lockin"></div>
-          </div>
-        </div>
- 
-        <div class="slider-group">
-          <div class="slider-header">
-            <label for="slider-flow">Relational Power</label>
-            <span class="slider-tag">(Flow Speed)</span>
-            <span class="slider-val" id="val-flow">3</span>
-          </div>
-          <div class="slider-track-wrap">
-            <input type="range" id="slider-flow" min="0" max="8" step="0.1" value="3" />
-            <div class="slider-fill" id="fill-flow"></div>
+          <div class="slider-track">
+            <input type="range" id="sl-lockin" min="1" max="5" step="0.1" value="2" />
           </div>
         </div>
- 
-        <div class="slider-group">
-          <div class="slider-header">
-            <label for="slider-dist">Systemic Disturbances</label>
-            <span class="slider-tag">(Phase Shift)</span>
-            <span class="slider-val" id="val-dist">1</span>
+
+        <div class="ctrl-group">
+          <div class="ctrl-header">
+            <label class="ctrl-name" for="sl-flow">
+              Relational Power
+              <span class="ctrl-tag">(Flow Speed)</span>
+            </label>
+            <span class="ctrl-val" id="disp-flow">3.0</span>
           </div>
-          <div class="slider-track-wrap">
-            <input type="range" id="slider-dist" min="0" max="8" step="0.1" value="1" />
-            <div class="slider-fill" id="fill-dist"></div>
+          <div class="slider-track">
+            <input type="range" id="sl-flow" min="1" max="5" step="0.1" value="3" />
           </div>
         </div>
- 
-        <div id="phase-alert" class="phase-alert hidden">
-          ⚠ PHASE SHIFT DETECTED — MULTIPOLAR TRANSITION
+
+        <div class="ctrl-group">
+          <div class="ctrl-header">
+            <label class="ctrl-name" for="sl-dist">
+              Systemic Disturbances
+              <span class="ctrl-tag">(Phase Shift)</span>
+            </label>
+            <span class="ctrl-val" id="disp-dist">1.0</span>
+          </div>
+          <div class="slider-track">
+            <input type="range" id="sl-dist" min="1" max="5" step="0.1" value="1" />
+          </div>
+        </div>
+
+        <div id="phase-warn" class="phase-warn hidden">
+          ⚠&nbsp; PHASE TRANSITION ACTIVE — MULTIPOLAR REORGANISATION
+        </div>
+
+      </section>
+
+      <!-- ── GLOSSARY ── -->
+      <section class="sb-section" id="sec-glossary">
+        <div class="sec-label">◆ CONCEPTUAL GLOSSARY</div>
+
+        <!-- Bounded scroll area for glossary list -->
+        <div id="glossary-scroll">
+          <dl class="glossary">
+
+            <div class="gl-item">
+              <dt>Game Space</dt>
+              <dd>Structural environment reconfigured by hegemonic power; the arena in which systemic rules operate and self-reproduce.</dd>
+            </div>
+
+            <div class="gl-item">
+              <dt>Spatial Fix</dt>
+              <dd>Geographical anchoring of excess capital to resolve over-accumulation crises; Harvey's spatial logic of capital expansion.</dd>
+            </div>
+
+            <div class="gl-item">
+              <dt>Consent</dt>
+              <dd>Gramscian legitimation of hegemony through cultural and institutional absorption of subordinate group interests and worldviews.</dd>
+            </div>
+
+            <div class="gl-item">
+              <dt>Downward Causation</dt>
+              <dd>Structural architecture dictating and locking-in entity behavior; emergent macro-level constraints feeding back onto constituent actors.</dd>
+            </div>
+
+            <div class="gl-item">
+              <dt>Systemic Forces</dt>
+              <dd>Interconnected economic, political-ideological, military, and technological variables driving power transitions within the hegemonic order.</dd>
+            </div>
+
+            <div class="gl-item">
+              <dt>Nodes</dt>
+              <dd>Institutions, individuals, or devices acting as centralized hubs controlling network flows of capital, data, norms, and coercive power.</dd>
+            </div>
+
+          </dl>
         </div>
       </section>
- 
-      <!-- GLOSSARY -->
-      <section class="panel" id="glossary-panel">
-        <div class="panel-title">◈ CONCEPTUAL GLOSSARY</div>
-        <dl class="glossary">
-          <dt>Game Space</dt>
-          <dd>Structural environment reconfigured by hegemonic power; the field in which systemic rules operate and reproduce.</dd>
- 
-          <dt>Spatial Fix</dt>
-          <dd>Geographical anchoring of excess capital to resolve crises of over-accumulation; Harvey's spatial logic of capitalism.</dd>
- 
-          <dt>Consent</dt>
-          <dd>Gramscian legitimation of hegemony through cultural, ideological, and institutional absorption of subaltern interests.</dd>
- 
-          <dt>Downward Causation</dt>
-          <dd>Structural architecture dictating actor behaviour; emergent macro-level constraints feeding back onto constituent entities.</dd>
- 
-          <dt>Entities</dt>
-          <dd>Nodes with irreducible causal powers — infrastructure, capital flows, norms, alliances — generating systemic outcomes.</dd>
-        </dl>
-      </section>
- 
-      <footer id="sidebar-footer">
-        <div class="footer-line">SIM CORE: GRAMSCIAN-REALIST HYBRID MODEL</div>
-        <div class="footer-line">© COMPLEX HEGEMONY DYNAMICS ENGINE</div>
-      </footer>
- 
-    </aside>
- 
-    <!-- ── CANVAS ── -->
-    <main id="canvas-container">
-      <canvas id="vortex-canvas"></canvas>
-      <div id="canvas-overlay">
-        <div class="overlay-corner top-left">LAT: 0.000° // LON: 0.000°</div>
-        <div class="overlay-corner top-right">FRAME: <span id="frame-counter">0</span></div>
-        <div class="overlay-corner bottom-left">RENDER: ACTIVE // DPR: <span id="dpr-display">1</span></div>
-        <div class="overlay-corner bottom-right">MODE: VORTEX SIM</div>
+
+    </div><!-- /#sb-scroll -->
+
+    <!-- Footer — always at bottom -->
+    <footer id="sb-footer">
+      Simulator developed by Jacy Magalhães (2026). References: Gramsci (1971), Harvey (1981), Williams (2019a).
+    </footer>
+
+  </aside><!-- /#sidebar -->
+
+  <!-- ═══════════════ CANVAS MAIN ═══════════════ -->
+  <main id="canvas-wrap">
+
+    <canvas id="vortex"></canvas>
+
+    <!-- Corner HUD readouts -->
+    <div class="c-corner c-tl">VORTEX SIM // ACTIVE</div>
+    <div class="c-corner c-tr">FRAME&nbsp;<span id="fc">0</span></div>
+    <div class="c-corner c-bl">CLICK ORBIT RINGS FOR DOMAIN DEFINITIONS</div>
+    <div class="c-corner c-br">HI-DPI // DPR&nbsp;<span id="dpr-disp">1</span></div>
+
+    <!-- ── Domain Modal ── -->
+    <div id="domain-modal" class="modal-backdrop hidden"
+         role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card" id="modal-card">
+        <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+        <div class="modal-orb" id="modal-orb"></div>
+        <h3 class="modal-title" id="modal-title">Domain Title</h3>
+        <p class="modal-body" id="modal-body">Definition text will appear here.</p>
+        <div class="modal-source">Complex Hegemony Theory — Williams (2019a)</div>
       </div>
-    </main>
- 
-  </div>
- 
-  <script src="script.js"></script>
+    </div>
+
+  </main><!-- /#canvas-wrap -->
+
+</div><!-- /#app -->
+
+<script src="script.js"></script>
 </body>
 </html>
