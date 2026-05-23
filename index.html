@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Vortex - Complex Hegemony</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div id="hud">
+    <div class="hud-line">ENVIRONMENT: <span>EMERGENT ORDER / GAME SPACE</span></div>
+    <div class="hud-line">ENTITIES: <span id="hud-entities">INTERACTING ACROSS SCALES</span></div>
+    <div class="hud-line">SYSTEM STATE: <span id="hud-status">METASTABLE EQUILIBRIUM</span></div>
+</div>
+
+<div id="canvas-container">
+    <canvas id="vortexCanvas"></canvas>
+</div>
+
+<div id="ui-panel">
+    <h3>SYSTEMIC FORCES</h3>
+    <div class="subtitle">Relational Power & Complex Hegemony</div>
+    
+    <div class="control-group">
+        <label>
+            <span>Downward Causation (Lock-in)</span>
+            <span class="value-display" id="v-pull">Moderate</span>
+        </label>
+        <input type="range" id="pullForce" min="1" max="5" step="1" value="3">
+    </div>
+    
+    <div class="control-group">
+        <label>
+            <span>Relational Power (Flow Speed)</span>
+            <span class="value-display" id="v-speed">Baseline</span>
+        </label>
+        <input type="range" id="speedForce" min="1" max="5" step="1" value="2">
+    </div>
+
+    <div class="control-group">
+        <label>
+            <span>Systemic Disturbances</span>
+            <span class="value-display" id="v-chaos" style="color: #d29922;">Low</span>
+        </label>
+        <input type="range" id="chaosForce" min="0" max="5" step="1" value="0">
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
