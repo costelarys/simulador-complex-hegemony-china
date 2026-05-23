@@ -73,24 +73,19 @@ for(let i = 0; i < 400; i++) {
     entities.push(new Entity());
 }
 
-// Matriz de exemplos baseada nos atratores e estados de metaestabilidade da sua tese
 function getHistoricalContext(pull, speed, chaos) {
-    // Caso 1: Perturbações Altas (Estado C do seu diagrama) -> Transição Sistêmica e a ascensão da China via BRI
     if (parseInt(chaos) >= 4) {
-        return "State C (Multipolarity / Shift): High systemic disturbances represent punctuated transformative crises. As US decline intersects with China's economic and technological rise, the Digital Silk Road and port infrastructures reconfigure global flows, pushing the system toward a new adaptive attractor.";
+        return "State C (Multipolarity / Phase Shift): High systemic disturbances represent punctuated transformative crises. As US decline intersects with China's economic and technological rise, the Digital Silk Road and port infrastructures reconfigure global flows, pushing the system toward a new adaptive attractor.";
     }
     
-    // Caso 2: Atração Máxima e Velocidade Moderada (Estado B do seu diagrama) -> Unipolaridade dos EUA
     if (parseInt(pull) >= 4 && parseInt(chaos) <= 1) {
         return "State B (US Unipolarity): Dominant centralized core with absolute structural lock-in. International institutions and financial systems create path-dependencies that automatically format the possibility spaces of subordinate entities under US leadership.";
     }
 
-    // Caso 3: Atrator em Equilíbrio Rígido / Fluxo Controlado -> Bipolaridade da Guerra Fria
     if (parseInt(pull) <= 2 && parseInt(speed) <= 2 && parseInt(chaos) === 0) {
         return "State A (Cold War Bipolarity): Rigid meta-stable equilibrium split between two structured fields of attraction. Low relational emergence outside the established blocs; fixed regulatory and ideological parameters restrict entity behavior.";
     }
 
-    // Caso Default: Estado Geral de Metaestabilidade dinâmica
     return "Metastable Order: Dynamic equilibrium where the hegemonic configuration is robust enough to endure across technological and economic scales, but remains highly sensitive to minor structural frictions and relational feedback loop accumulations.";
 }
 
@@ -110,7 +105,6 @@ function updateLabels(pull, speed, chaos) {
     const hudEntities = document.getElementById('hud-entities');
     const hudExample = document.getElementById('hud-example');
 
-    // Injeta o texto dinâmico da matriz histórica
     hudExample.innerText = getHistoricalContext(pull, speed, chaos);
 
     if (parseInt(pull) >= 4) {
@@ -150,7 +144,7 @@ function animate() {
     let centerY = window.innerHeight / 2;
 
     let pulse = 1 + Math.sin(Date.now() * 0.002) * (0.01 + (chaos * 0.005));
-    let grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 75 * pulse);
+    let grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 85 * pulse);
     
     if (chaos >= 4) {
         grad.addColorStop(0, 'rgba(255, 123, 114, 1)');
@@ -166,14 +160,19 @@ function animate() {
 
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 75 * pulse, 0, Math.PI * 2);
+    ctx.arc(centerX, centerY, 85 * pulse, 0, Math.PI * 2);
     ctx.fill();
 
+    // Novo design do Núcleo (A Matrioska Teórica)
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.font = "bold 13px sans-serif";
-    ctx.fillText("HEGEMONIC CORE", centerX, centerY);
+    ctx.fillText("COMPLEX HEGEMONY", centerX, centerY - 6);
+    
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+    ctx.font = "10px monospace";
+    ctx.fillText("GRAMSCIAN CONSENT CORE", centerX, centerY + 8);
 
     entities.forEach(e => {
         e.update(pull, speed, chaos);
@@ -185,7 +184,7 @@ function animate() {
         let currentAngle = time + d.angleOffset;
         
         let adjustedRadius = d.baseRadius - (pull * 15) + (Math.random() * chaos * 3);
-        if (adjustedRadius < 90) adjustedRadius = 90;
+        if (adjustedRadius < 100) adjustedRadius = 100;
 
         let dx = centerX + Math.cos(currentAngle) * adjustedRadius;
         let dy = centerY + Math.sin(currentAngle) * adjustedRadius;
