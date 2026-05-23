@@ -1,34 +1,147 @@
+
+raw
+Index · HTML
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complex Hegemony — Dynamic Vortex Simulation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar">
-            <h2>COMPLEX HEGEMONY</h2>
-            <div class="control-section">
-                <h3>CONTROLS</h3>
-                <label>Downward Causation</label>
-                <input type="range" id="pullForce" min="1" max="5" step="1" value="3">
-                <label>Relational Power</label>
-                <input type="range" id="speedForce" min="1" max="5" step="1" value="2">
-            </div>
-            <div class="glossary-section">
-                <h3>GLOSSARY</h3>
-                <ul>
-                    <li><strong>Game Space:</strong> Structural environment reconfigured by hegemon.</li>
-                    <li><strong>Spatial Fix:</strong> Geographical anchoring of excess capital.</li>
-                    <li><strong>Consent:</strong> Gramscian legitimation of hegemony.</li>
-                    <li><strong>Entities:</strong> Nodes with causal powers.</li>
-                </ul>
-            </div>
-        </aside>
-        <main class="viewport">
-            <canvas id="vortexCanvas"></canvas>
-        </main>
-    </div>
-    <script src="script.js"></script>
+  <div id="app">
+ 
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar">
+ 
+      <header id="sidebar-header">
+        <div class="header-tag">SIM // v2.4.1</div>
+        <h1>COMPLEX<br/>HEGEMONY</h1>
+        <div class="header-sub">INTERNATIONAL SYSTEMS DYNAMICS ENGINE</div>
+        <div class="scan-line"></div>
+      </header>
+ 
+      <!-- HUD -->
+      <section class="panel" id="hud-panel">
+        <div class="panel-title">◈ SYSTEM HUD</div>
+        <div class="hud-grid">
+          <div class="hud-row">
+            <span class="hud-label">ENVIRONMENT</span>
+            <span class="hud-value accent-green">GAME SPACE</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">SYSTEM STATE</span>
+            <span class="hud-value accent-cyan">METASTABLE EQUILIBRIUM</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">ENTITIES</span>
+            <span class="hud-value" id="hud-entities">72 NODES ACTIVE</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">PHASE</span>
+            <span class="hud-value" id="hud-phase">STABLE</span>
+          </div>
+          <div class="hud-row hud-row--full">
+            <span class="hud-label">SPATIAL FIX</span>
+          </div>
+          <div class="hud-row hud-row--full">
+            <span class="hud-value hud-spatial" id="hud-spatial">
+              State A (Cold War Bipolarity): Geopolitical containment rings
+            </span>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- CONTROLS -->
+      <section class="panel" id="controls-panel">
+        <div class="panel-title">◈ SYSTEMIC FORCES</div>
+ 
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="slider-lockin">Downward Causation</label>
+            <span class="slider-tag">(Lock-in)</span>
+            <span class="slider-val" id="val-lockin">3</span>
+          </div>
+          <div class="slider-track-wrap">
+            <input type="range" id="slider-lockin" min="0" max="8" step="0.1" value="3" />
+            <div class="slider-fill" id="fill-lockin"></div>
+          </div>
+        </div>
+ 
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="slider-flow">Relational Power</label>
+            <span class="slider-tag">(Flow Speed)</span>
+            <span class="slider-val" id="val-flow">3</span>
+          </div>
+          <div class="slider-track-wrap">
+            <input type="range" id="slider-flow" min="0" max="8" step="0.1" value="3" />
+            <div class="slider-fill" id="fill-flow"></div>
+          </div>
+        </div>
+ 
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="slider-dist">Systemic Disturbances</label>
+            <span class="slider-tag">(Phase Shift)</span>
+            <span class="slider-val" id="val-dist">1</span>
+          </div>
+          <div class="slider-track-wrap">
+            <input type="range" id="slider-dist" min="0" max="8" step="0.1" value="1" />
+            <div class="slider-fill" id="fill-dist"></div>
+          </div>
+        </div>
+ 
+        <div id="phase-alert" class="phase-alert hidden">
+          ⚠ PHASE SHIFT DETECTED — MULTIPOLAR TRANSITION
+        </div>
+      </section>
+ 
+      <!-- GLOSSARY -->
+      <section class="panel" id="glossary-panel">
+        <div class="panel-title">◈ CONCEPTUAL GLOSSARY</div>
+        <dl class="glossary">
+          <dt>Game Space</dt>
+          <dd>Structural environment reconfigured by hegemonic power; the field in which systemic rules operate and reproduce.</dd>
+ 
+          <dt>Spatial Fix</dt>
+          <dd>Geographical anchoring of excess capital to resolve crises of over-accumulation; Harvey's spatial logic of capitalism.</dd>
+ 
+          <dt>Consent</dt>
+          <dd>Gramscian legitimation of hegemony through cultural, ideological, and institutional absorption of subaltern interests.</dd>
+ 
+          <dt>Downward Causation</dt>
+          <dd>Structural architecture dictating actor behaviour; emergent macro-level constraints feeding back onto constituent entities.</dd>
+ 
+          <dt>Entities</dt>
+          <dd>Nodes with irreducible causal powers — infrastructure, capital flows, norms, alliances — generating systemic outcomes.</dd>
+        </dl>
+      </section>
+ 
+      <footer id="sidebar-footer">
+        <div class="footer-line">SIM CORE: GRAMSCIAN-REALIST HYBRID MODEL</div>
+        <div class="footer-line">© COMPLEX HEGEMONY DYNAMICS ENGINE</div>
+      </footer>
+ 
+    </aside>
+ 
+    <!-- ── CANVAS ── -->
+    <main id="canvas-container">
+      <canvas id="vortex-canvas"></canvas>
+      <div id="canvas-overlay">
+        <div class="overlay-corner top-left">LAT: 0.000° // LON: 0.000°</div>
+        <div class="overlay-corner top-right">FRAME: <span id="frame-counter">0</span></div>
+        <div class="overlay-corner bottom-left">RENDER: ACTIVE // DPR: <span id="dpr-display">1</span></div>
+        <div class="overlay-corner bottom-right">MODE: VORTEX SIM</div>
+      </div>
+    </main>
+ 
+  </div>
+ 
+  <script src="script.js"></script>
 </body>
 </html>
