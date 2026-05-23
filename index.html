@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Hegemony Simulation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,24 +12,33 @@
         <div id="hud">
             <div class="hud-line">ENVIRONMENT: <span class="highlight-blue">GAME SPACE</span></div>
             <div class="hud-line">SYSTEM: <span id="hud-status">METASTABLE</span></div>
-            <div class="hud-line border-top">SPATIAL FIX: <span id="hud-spatial-fix">...</span></div>
+            <div class="hud-line border-top">SPATIAL FIX: <span id="hud-spatial-fix">INITIALIZING...</span></div>
         </div>
+        
         <div id="controls">
-            <label>Downward Causation <input type="range" id="pullForce" min="1" max="5" value="3"></label>
-            <label>Relational Power <input type="range" id="speedForce" min="1" max="5" value="2"></label>
+            <label>Downward Causation (Lock-in)</label>
+            <input type="range" id="pullForce" min="1" max="5" value="3">
+            
+            <label>Relational Power (Flow Speed)</label>
+            <input type="range" id="speedForce" min="1" max="5" value="2">
         </div>
+
         <div id="glossary">
             <h3>GLOSSARY</h3>
             <ul>
-                <li><strong>Game Space:</strong> Structural environment reconfigured by hegemon.</li>
-                <li><strong>Spatial Fix:</strong> Geographical anchoring of excess capital.</li>
-                <li><strong>Consent:</strong> Gramscian legitimation of hegemony.</li>
+                <li><strong>Game Space:</strong> Structural environment reconfigured by infrastructures and norms.</li>
+                <li><strong>Spatial Fix:</strong> Geographical anchoring of excess capital in specific nodes.</li>
+                <li><strong>Consent:</strong> The moral/political legitimation that sustains material expansion.</li>
+                <li><strong>Downward Causation:</strong> Structural architecture dictating entity behavior.</li>
+                <li><strong>Relational Power:</strong> Power emerging from network position, not isolated capacity.</li>
             </ul>
         </div>
     </aside>
+    
     <main id="canvas-container">
         <canvas id="vortexCanvas"></canvas>
     </main>
+    
     <script src="script.js"></script>
 </body>
 </html>
