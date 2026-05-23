@@ -73,18 +73,18 @@ for(let i = 0; i < 400; i++) {
     entities.push(new Entity());
 }
 
-// Matriz Teórica: Retorna o Contexto Histórico e o Spatial Fix correspondente
+// Matriz Teórica Atualizada: Sem "Global" ou "Globalizado"
 function getTheoreticalContext(pull, speed, chaos) {
     if (parseInt(chaos) >= 4) {
         return {
             spatialFix: "Belt and Road Initiative (BRI), 5G Networks, Dual-Use Ports.",
-            context: "State C (Multipolarity / Shift): High systemic disturbances represent punctuated transformative crises. The Digital Silk Road reconfigures global flows, pushing the system toward a new adaptive attractor (China's Rise)."
+            context: "State C (Multipolarity / Shift): High systemic disturbances represent punctuated transformative crises. The Digital Silk Road reconfigures systemic flows, pushing the architecture toward a new adaptive attractor (China's Rise)."
         };
     }
     if (parseInt(pull) >= 4 && parseInt(chaos) <= 1) {
         return {
-            spatialFix: "Globalized Financial Networks, Bretton Woods Institutions, Sea Lanes.",
-            context: "State B (US Unipolarity): Dominant centralized core with absolute structural lock-in. Institutions and financial systems create path-dependencies that format the possibility spaces of subordinate entities."
+            spatialFix: "Transnational Financial Networks, Bretton Woods Institutions, Sea Lanes.",
+            context: "State B (US Unipolarity): Dominant centralized core with absolute structural lock-in. Institutions and financial systems create path-dependencies that format the possibility spaces of subaltern entities."
         };
     }
     if (parseInt(pull) <= 2 && parseInt(speed) <= 2 && parseInt(chaos) === 0) {
@@ -101,7 +101,7 @@ function getTheoreticalContext(pull, speed, chaos) {
 
 function updateLabels(pull, speed, chaos) {
     const textPull = ["Weak", "Minimal", "Moderate", "High", "STRUCTURAL LOCK-IN"];
-    const textSpeed = ["Static", "Baseline", "Accelerated", "High Flow", "Hyper-Relational"];
+    const textSpeed = ["Static", "Baseline", "Accelerated", "High Flow", "HYPER-RELATIONAL"];
     const textChaos = ["Stable", "Minor Frictions", "Growing Tensions", "Critical Instability", "PHASE SHIFT"];
 
     document.getElementById('v-pull').innerText = textPull[pull - 1];
@@ -176,7 +176,6 @@ function animate() {
     ctx.arc(centerX, centerY, 90 * pulse, 0, Math.PI * 2);
     ctx.fill();
 
-    // Rótulos do Núcleo: A Matrioska Teórica
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -187,7 +186,6 @@ function animate() {
     ctx.font = "bold 10px monospace";
     ctx.fillText("[ GRAMSCIAN CONSENT ]", centerX, centerY + 8);
 
-    // Rótulo sutil do ambiente
     ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
     ctx.font = "bold 40px sans-serif";
     ctx.fillText("GAME SPACE", centerX, centerY - 150);
