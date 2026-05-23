@@ -3,28 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Vortex - Complex Hegemony (With Examples)</title>
+    <title>Dynamic Vortex - Complex Hegemony</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="hud">
-    <div class="hud-section" id="hud-environment">
-        <label>ENVIRONMENT</label>
-        <span class="value">Multipolar equilibrium with minor friction</span>
-    </div>
-    <div class="hud-section" id="hud-entities">
-        <label>ENTITIES</label>
-        <span class="value">Interacting across scales</span>
-    </div>
-    <div class="hud-section" id="hud-systems">
-        <label>SYSTEMS</label>
-        <span class="value">Metastable Attractor</span>
-    </div>
-    <div class="hud-section" id="hud-examples">
-        <label>EXAMPLES</label>
-        <span class="value">Stable, US-led order (Bretton Woods) holds</span>
-    </div>
+    <div class="hud-line">ENVIRONMENT: <span>EMERGENT ORDER / GAME SPACE</span></div>
+    <div class="hud-line">ENTITIES: <span id="hud-entities">INTERACTING ACROSS SCALES</span></div>
+    <div class="hud-line">SYSTEM STATE: <span id="hud-status">METASTABLE EQUILIBRIUM</span></div>
+    <div class="hud-line border-top">HISTORICAL CONTEXT: <span id="hud-example">INITIALIZING...</span></div>
 </div>
 
 <div id="canvas-container">
@@ -37,7 +25,7 @@
     
     <div class="control-group">
         <label>
-            <span>Downward Causation (Lock-in Force)</span>
+            <span>Downward Causation (Lock-in)</span>
             <span class="value-display" id="v-pull">Moderate</span>
         </label>
         <input type="range" id="pullForce" min="1" max="5" step="1" value="3">
@@ -45,4 +33,21 @@
     
     <div class="control-group">
         <label>
-            <span>Relational Power (Flow Speed)[Direct Text Answer] -> [Explanation of Method] -> [JSON Widget].
+            <span>Relational Power (Flow Speed)</span>
+            <span class="value-display" id="v-speed">Baseline</span>
+        </label>
+        <input type="range" id="speedForce" min="1" max="5" step="1" value="2">
+    </div>
+
+    <div class="control-group">
+        <label>
+            <span>Systemic Disturbances</span>
+            <span class="value-display" id="v-chaos" style="color: #d29922;">Low</span>
+        </label>
+        <input type="range" id="chaosForce" min="0" max="5" step="1" value="0">
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
