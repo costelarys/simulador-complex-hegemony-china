@@ -73,20 +73,30 @@ for(let i = 0; i < 400; i++) {
     entities.push(new Entity());
 }
 
-function getHistoricalContext(pull, speed, chaos) {
+// Matriz Teórica: Retorna o Contexto Histórico e o Spatial Fix correspondente
+function getTheoreticalContext(pull, speed, chaos) {
     if (parseInt(chaos) >= 4) {
-        return "State C (Multipolarity / Phase Shift): High systemic disturbances represent punctuated transformative crises. As US decline intersects with China's economic and technological rise, the Digital Silk Road and port infrastructures reconfigure global flows, pushing the system toward a new adaptive attractor.";
+        return {
+            spatialFix: "Belt and Road Initiative (BRI), 5G Networks, Dual-Use Ports.",
+            context: "State C (Multipolarity / Shift): High systemic disturbances represent punctuated transformative crises. The Digital Silk Road reconfigures global flows, pushing the system toward a new adaptive attractor (China's Rise)."
+        };
     }
-    
     if (parseInt(pull) >= 4 && parseInt(chaos) <= 1) {
-        return "State B (US Unipolarity): Dominant centralized core with absolute structural lock-in. International institutions and financial systems create path-dependencies that automatically format the possibility spaces of subordinate entities under US leadership.";
+        return {
+            spatialFix: "Globalized Financial Networks, Bretton Woods Institutions, Sea Lanes.",
+            context: "State B (US Unipolarity): Dominant centralized core with absolute structural lock-in. Institutions and financial systems create path-dependencies that format the possibility spaces of subordinate entities."
+        };
     }
-
     if (parseInt(pull) <= 2 && parseInt(speed) <= 2 && parseInt(chaos) === 0) {
-        return "State A (Cold War Bipolarity): Rigid meta-stable equilibrium split between two structured fields of attraction. Low relational emergence outside the established blocs; fixed regulatory and ideological parameters restrict entity behavior.";
+        return {
+            spatialFix: "Geopolitical Containment Rings, Divided Industrial Blocs.",
+            context: "State A (Cold War Bipolarity): Rigid meta-stable equilibrium split between two structured fields of attraction. Low relational emergence outside established blocs."
+        };
     }
-
-    return "Metastable Order: Dynamic equilibrium where the hegemonic configuration is robust enough to endure across technological and economic scales, but remains highly sensitive to minor structural frictions and relational feedback loop accumulations.";
+    return {
+        spatialFix: "Material and Geographical Anchoring of Excess Capital.",
+        context: "Metastable Order: Dynamic equilibrium where the hegemonic configuration endures across scales, but remains sensitive to structural frictions and relational feedback loops."
+    };
 }
 
 function updateLabels(pull, speed, chaos) {
@@ -104,8 +114,11 @@ function updateLabels(pull, speed, chaos) {
     const hudStatus = document.getElementById('hud-status');
     const hudEntities = document.getElementById('hud-entities');
     const hudExample = document.getElementById('hud-example');
+    const hudSpatialFix = document.getElementById('hud-spatial-fix');
 
-    hudExample.innerText = getHistoricalContext(pull, speed, chaos);
+    const theoryData = getTheoreticalContext(pull, speed, chaos);
+    hudSpatialFix.innerText = theoryData.spatialFix;
+    hudExample.innerText = theoryData.context;
 
     if (parseInt(pull) >= 4) {
         hudEntities.innerText = "BEHAVIOR LOCKED-IN (DOWNWARD CAUSATION)";
@@ -118,15 +131,15 @@ function updateLabels(pull, speed, chaos) {
     if (parseInt(chaos) >= 4) {
         hudStatus.innerText = "RAPID PHASE SHIFT TRIGGERED";
         hudStatus.style.color = "#ff7b72";
-        hudExample.style.color = "#ff7b72";
+        hudSpatialFix.style.color = "#ff7b72";
     } else if (parseInt(pull) >= 4 && parseInt(chaos) <= 1) {
         hudStatus.innerText = "CENTRALIZED ATTRACTOR STATE";
         hudStatus.style.color = "#58a6ff";
-        hudExample.style.color = "#58a6ff";
+        hudSpatialFix.style.color = "#58a6ff";
     } else {
         hudStatus.innerText = "METASTABLE EQUILIBRIUM";
         hudStatus.style.color = "#56d364";
-        hudExample.style.color = "#d29922";
+        hudSpatialFix.style.color = "#d29922";
     }
 }
 
@@ -144,35 +157,40 @@ function animate() {
     let centerY = window.innerHeight / 2;
 
     let pulse = 1 + Math.sin(Date.now() * 0.002) * (0.01 + (chaos * 0.005));
-    let grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 85 * pulse);
+    let grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 90 * pulse);
     
     if (chaos >= 4) {
         grad.addColorStop(0, 'rgba(255, 123, 114, 1)');
-        grad.addColorStop(0.4, 'rgba(255, 123, 114, 0.3)');
+        grad.addColorStop(0.4, 'rgba(255, 123, 114, 0.25)');
     } else if (pull >= 4 && chaos <= 1) {
         grad.addColorStop(0, 'rgba(88, 166, 255, 1)');
-        grad.addColorStop(0.4, 'rgba(88, 166, 255, 0.3)');
+        grad.addColorStop(0.4, 'rgba(88, 166, 255, 0.25)');
     } else {
         grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-        grad.addColorStop(0.4, 'rgba(88, 166, 255, 0.3)');
+        grad.addColorStop(0.4, 'rgba(88, 166, 255, 0.25)');
     }
     grad.addColorStop(1, 'rgba(7, 10, 14, 0)');
 
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.arc(centerX, centerY, 85 * pulse, 0, Math.PI * 2);
+    ctx.arc(centerX, centerY, 90 * pulse, 0, Math.PI * 2);
     ctx.fill();
 
-    // Novo design do Núcleo (A Matrioska Teórica)
+    // Rótulos do Núcleo: A Matrioska Teórica
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.font = "bold 13px sans-serif";
-    ctx.fillText("COMPLEX HEGEMONY", centerX, centerY - 6);
+    ctx.fillText("COMPLEX HEGEMONY", centerX, centerY - 8);
     
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-    ctx.font = "10px monospace";
-    ctx.fillText("GRAMSCIAN CONSENT CORE", centerX, centerY + 8);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.font = "bold 10px monospace";
+    ctx.fillText("[ GRAMSCIAN CONSENT ]", centerX, centerY + 8);
+
+    // Rótulo sutil do ambiente
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+    ctx.font = "bold 40px sans-serif";
+    ctx.fillText("GAME SPACE", centerX, centerY - 150);
 
     entities.forEach(e => {
         e.update(pull, speed, chaos);
@@ -184,7 +202,7 @@ function animate() {
         let currentAngle = time + d.angleOffset;
         
         let adjustedRadius = d.baseRadius - (pull * 15) + (Math.random() * chaos * 3);
-        if (adjustedRadius < 100) adjustedRadius = 100;
+        if (adjustedRadius < 110) adjustedRadius = 110;
 
         let dx = centerX + Math.cos(currentAngle) * adjustedRadius;
         let dy = centerY + Math.sin(currentAngle) * adjustedRadius;
