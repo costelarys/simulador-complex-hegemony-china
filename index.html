@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="wrapper">
-        <aside id="sidebar">
+    <div class="app-container">
+        <aside class="sidebar">
             <h2>COMPLEX HEGEMONY</h2>
-            <div id="controls">
+            <div class="control-section">
+                <h3>CONTROLS</h3>
                 <label>Downward Causation</label>
                 <input type="range" id="pullForce" min="1" max="5" step="1" value="3">
                 <label>Relational Power</label>
                 <input type="range" id="speedForce" min="1" max="5" step="1" value="2">
             </div>
-            <div id="glossary">
+            <div class="glossary-section">
                 <h3>GLOSSARY</h3>
                 <ul>
                     <li><strong>Game Space:</strong> Structural environment reconfigured by hegemon.</li>
                     <li><strong>Spatial Fix:</strong> Geographical anchoring of excess capital.</li>
                     <li><strong>Consent:</strong> Gramscian legitimation of hegemony.</li>
+                    <li><strong>Entities:</strong> Nodes with causal powers.</li>
                 </ul>
             </div>
         </aside>
-        <main id="main-canvas">
+        <main class="viewport">
             <canvas id="vortexCanvas"></canvas>
         </main>
     </div>
