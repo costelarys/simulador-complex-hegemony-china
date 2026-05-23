@@ -2,68 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Vortex - Complex Hegemony</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div id="hud">
-    <div class="hud-line">ENVIRONMENT: <span class="highlight-blue">GAME SPACE</span></div>
-    <div class="hud-line">ENTITIES: <span id="hud-entities">INTERACTING ACROSS SCALES</span></div>
-    <div class="hud-line">SYSTEM STATE: <span id="hud-status">METASTABLE EQUILIBRIUM</span></div>
-    <div class="hud-line border-top">SPATIAL FIX: <span id="hud-spatial-fix" class="highlight-gold">INITIALIZING...</span></div>
-    <div class="hud-line">CONTEXT: <span id="hud-example">INITIALIZING...</span></div>
-</div>
-
-<div id="canvas-container">
-    <canvas id="vortexCanvas"></canvas>
-</div>
-
-<div id="ui-panel">
-    <h3>SYSTEMIC FORCES</h3>
-    <div class="subtitle">Relational Power & Downward Causation</div>
-    
-    <div class="control-group">
-        <label>
-            <span>Downward Causation (Lock-in)</span>
-            <span class="value-display" id="v-pull">Moderate</span>
-        </label>
-        <input type="range" id="pullForce" min="1" max="5" step="1" value="3">
-    </div>
-    
-    <div class="control-group">
-        <label>
-            <span>Relational Power (Flow Speed)</span>
-            <span class="value-display" id="v-speed">Baseline</span>
-        </label>
-        <input type="range" id="speedForce" min="1" max="5" step="1" value="2">
-    </div>
-
-    <div class="control-group">
-        <label>
-            <span>Systemic Disturbances</span>
-            <span class="value-display" id="v-chaos" style="color: #d29922;">Low</span>
-        </label>
-        <input type="range" id="chaosForce" min="0" max="5" step="1" value="0">
-    </div>
-</div>
-
-<div id="glossary-panel">
-    <h3>THEORETICAL GLOSSARY</h3>
-    <ul>
-        <li><strong>Game Space:</strong> The structural environment reconfigured by infrastructures and norms.</li>
-        <li><strong>Systemic Forces:</strong> Pressures (tech/econ) shaping system evolution.</li>
-        <li><strong>Consent:</strong> The moral/political legitimation that sustains material expansion.</li>
-        <li><strong>Possibility Space:</strong> The menu of options available to subaltern entities.</li>
-        <li><strong>Generative Entrenchment:</strong> Deep embedding of infrastructures creating lock-in.</li>
-        <li><strong>Downward Causation:</strong> Structural architecture dictating entity behavior.</li>
-        <li><strong>Relational Power:</strong> Power emerging from network position, not isolated capacity.</li>
-        <li><strong>Systemic Disturbances:</strong> Frictions that accumulate toward a phase shift.</li>
-        <li><strong>Entities:</strong> Nodes (infrastructure/capital) with causal powers.</li>
-    </ul>
-</div>
-
-<script src="script.js"></script>
+    <aside id="sidebar">
+        <h2>COMPLEX HEGEMONY</h2>
+        <div id="hud">
+            <div class="hud-line">ENVIRONMENT: <span class="highlight-blue">GAME SPACE</span></div>
+            <div class="hud-line">SYSTEM: <span id="hud-status">METASTABLE</span></div>
+            <div class="hud-line border-top">SPATIAL FIX: <span id="hud-spatial-fix">...</span></div>
+        </div>
+        <div id="controls">
+            <label>Downward Causation <input type="range" id="pullForce" min="1" max="5" value="3"></label>
+            <label>Relational Power <input type="range" id="speedForce" min="1" max="5" value="2"></label>
+        </div>
+        <div id="glossary">
+            <h3>GLOSSARY</h3>
+            <ul>
+                <li><strong>Game Space:</strong> Structural environment reconfigured by hegemon.</li>
+                <li><strong>Spatial Fix:</strong> Geographical anchoring of excess capital.</li>
+                <li><strong>Consent:</strong> Gramscian legitimation of hegemony.</li>
+            </ul>
+        </div>
+    </aside>
+    <main id="canvas-container">
+        <canvas id="vortexCanvas"></canvas>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
