@@ -1,31 +1,8 @@
-/* ... (Mantenha o início do CSS anterior) ... */
-
-/* Ajuste no HUD Superior para caber melhor */
-#hud {
-    position: absolute; top: 15px; right: 20px; z-index: 10;
-    background: rgba(7, 10, 14, 0.9); padding: 12px;
-    border-radius: 6px; border: 1px solid rgba(48, 54, 61, 0.6);
-    font-family: monospace; font-size: 10px; color: #8b949e;
-    pointer-events: none; width: 350px;
-}
-
-/* Glossário: Agora com scrollbar interna para não "bugar" o layout */
-#glossary-panel {
-    position: absolute; bottom: 25px; right: 25px; z-index: 10;
-    background: rgba(7, 10, 14, 0.9); padding: 15px;
-    border-radius: 8px; border: 1px solid rgba(48, 54, 61, 0.8);
-    width: 320px; max-height: 300px; /* Limite de altura vital */
-    overflow-y: auto; /* Barra de rolagem interna */
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
-}
-#glossary-panel h3 { font-size: 11px; margin-bottom: 8px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
-#glossary-panel li { font-size: 10px; margin-bottom: 5px; line-height: 1.3; }
-
-/* Ajuste dos controles para não ficarem gigantes */
-#ui-panel {
-    position: absolute; bottom: 25px; left: 25px; z-index: 10;
-    background: rgba(7, 10, 14, 0.9); padding: 15px;
-    border-radius: 8px; border: 1px solid rgba(48, 54, 61, 0.8);
-    width: 280px; /* Reduzido de 380 para 280 */
-}
+body, html { margin: 0; height: 100%; background: #05070a; color: white; font-family: sans-serif; display: flex; }
+#sidebar { width: 350px; padding: 20px; background: #0a0e14; border-right: 1px solid #1f242c; overflow-y: auto; }
+#canvas-container { flex-grow: 1; position: relative; }
+canvas { display: block; width: 100%; height: 100%; }
+.hud-line { font-size: 11px; margin-bottom: 5px; color: #8b949e; }
+.border-top { border-top: 1px solid #1f242c; margin-top: 10px; padding-top: 10px; }
+input { width: 100%; margin-bottom: 20px; }
+li { font-size: 10px; margin-bottom: 8px; color: #a0a0a0; }
